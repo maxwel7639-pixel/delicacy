@@ -203,6 +203,7 @@ button:focus-visible{
   overflow: hidden;
 }
 .hero-media{ position: absolute; inset: 0; }
+.hero-media picture{ display: block; width: 100%; height: 100%; }
 .hero-media img{
   width: 100%; height: 100%;
   object-fit: cover;
@@ -392,18 +393,10 @@ button:focus-visible{
   transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
 }
 .equipe-index a:hover{ transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.equipe-index img,
-.equipe-index-mono{
+.equipe-index img{
   width: 34px; height: 34px;
   border-radius: 50%;
   object-fit: cover;
-}
-.equipe-index-mono{
-  display: flex; align-items: center; justify-content: center;
-  background: var(--sage-500);
-  color: var(--white);
-  font-family: var(--font-serif);
-  font-size: 0.8rem;
 }
 
 /* editorial profile spreads */
@@ -438,20 +431,6 @@ button:focus-visible{
   box-shadow: var(--shadow-md);
   margin: 0 auto;
 }
-.pro-media--mono .pro-portrait--mono{
-  width: 100%;
-  max-width: 340px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(155deg, var(--sage-500) 0%, var(--sage-900) 100%);
-  color: var(--gold-300);
-  font-family: var(--font-serif);
-  font-size: 5rem;
-  font-weight: 500;
-}
 .pro-gallery{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -460,6 +439,8 @@ button:focus-visible{
   margin: 0 auto;
   width: 100%;
 }
+.pro-gallery--duo{ grid-template-columns: repeat(2, 1fr); }
+.pro-media--solo .pro-portrait{ max-width: 380px; }
 .pro-gallery img{
   aspect-ratio: 1 / 1;
   object-fit: cover;

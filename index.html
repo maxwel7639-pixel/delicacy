@@ -35,7 +35,10 @@
   <!-- HERO -->
   <section class="hero" id="hero" aria-label="Início">
     <div class="hero-media">
-      <img src="assets/img/hero-equipe.jpg" alt="Equipe Delicacy Estética reunida em frente ao logo da clínica em Torres/RS" loading="eager">
+      <picture>
+        <source srcset="assets/img/hero-equipe.webp" type="image/webp">
+        <img src="assets/img/hero-equipe.jpg" alt="Equipe Delicacy Estética reunida em frente ao logo da clínica em Torres/RS" loading="eager">
+      </picture>
       <div class="hero-scrim"></div>
     </div>
     <div class="hero-content">
@@ -147,7 +150,7 @@
     <nav class="equipe-index" aria-label="Ir para o perfil de cada profissional">
       <a href="#pro-victoria"><img src="assets/img/equipe-victoria.jpg" alt="" loading="lazy"><span>Victoria</span></a>
       <a href="#pro-angela"><img src="assets/img/equipe-angela.jpg" alt="" loading="lazy"><span>Ângela</span></a>
-      <a href="#pro-camila"><span class="equipe-index-mono" aria-hidden="true">CA</span><span>Camila</span></a>
+      <a href="#pro-camila"><img src="assets/img/equipe-camila.jpg" alt="" loading="lazy"><span>Camila</span></a>
       <a href="#pro-sofia"><img src="assets/img/equipe-sofia.jpg" alt="" loading="lazy"><span>Sofia</span></a>
       <a href="#pro-julia"><img src="assets/img/equipe-julia.jpg" alt="" loading="lazy"><span>Júlia</span></a>
       <a href="#pro-nathalia"><img src="assets/img/equipe-nathalia.jpg" alt="" loading="lazy"><span>Nathalia</span></a>
@@ -159,10 +162,9 @@
       <article class="pro-spread" id="pro-victoria">
         <div class="pro-media">
           <img class="pro-portrait" src="assets/img/equipe-victoria.jpg" alt="Victoria Raupp, Nail Designer da Delicacy" loading="lazy">
-          <div class="pro-gallery">
+          <div class="pro-gallery pro-gallery--duo">
             <img src="assets/img/work-victoria-1.jpg" alt="Trabalho de unhas por Victoria Raupp" loading="lazy">
             <img src="assets/img/work-victoria-2.jpg" alt="Trabalho de unhas por Victoria Raupp" loading="lazy">
-            <img src="assets/img/work-victoria-3.jpg" alt="Trabalho de unhas por Victoria Raupp" loading="lazy">
           </div>
         </div>
         <div class="pro-content">
@@ -185,13 +187,8 @@
 
       <!-- Ângela -->
       <article class="pro-spread pro-spread--reverse" id="pro-angela">
-        <div class="pro-media">
+        <div class="pro-media pro-media--solo">
           <img class="pro-portrait" src="assets/img/equipe-angela.jpg" alt="Ângela Raupp, especialista em Estética Avançada da Delicacy" loading="lazy">
-          <div class="pro-gallery">
-            <img src="assets/img/work-angela-1.jpg" alt="Resultado de full face por Ângela Raupp" loading="lazy">
-            <img src="assets/img/work-angela-2.jpg" alt="Resultado de harmonização por Ângela Raupp" loading="lazy">
-            <img src="assets/img/work-angela-3.jpg" alt="Sala de atendimento de estética avançada da Delicacy" loading="lazy">
-          </div>
         </div>
         <div class="pro-content">
           <p class="pro-num">02</p>
@@ -213,8 +210,8 @@
 
       <!-- Camila -->
       <article class="pro-spread" id="pro-camila">
-        <div class="pro-media pro-media--mono">
-          <div class="pro-portrait pro-portrait--mono" aria-hidden="true">CA</div>
+        <div class="pro-media pro-media--solo">
+          <img class="pro-portrait" src="assets/img/equipe-camila.jpg" alt="Camila Alves, especialista em Estética e Beleza da Delicacy" loading="lazy">
         </div>
         <div class="pro-content">
           <p class="pro-num">03</p>
@@ -238,10 +235,9 @@
       <article class="pro-spread pro-spread--reverse" id="pro-sofia">
         <div class="pro-media">
           <img class="pro-portrait" src="assets/img/equipe-sofia.jpg" alt="Sofia Trevizani, Designer de sobrancelhas e pedicure da Delicacy" loading="lazy">
-          <div class="pro-gallery">
-            <img src="assets/img/work-sofia-1.jpg" alt="Design de sobrancelhas por Sofia Trevizani" loading="lazy">
-            <img src="assets/img/work-sofia-2.jpg" alt="Cuidado de pedicure por Sofia Trevizani" loading="lazy">
-            <img src="assets/img/work-sofia-3.jpg" alt="Blindagem nos pés por Sofia Trevizani" loading="lazy">
+          <div class="pro-gallery pro-gallery--duo">
+            <img src="assets/img/work-sofia-2.jpg" alt="Antes e depois de design de sobrancelhas por Sofia Trevizani" loading="lazy">
+            <img src="assets/img/work-sofia-3.jpg" alt="Antes e depois de design de sobrancelhas por Sofia Trevizani" loading="lazy">
           </div>
         </div>
         <div class="pro-content">
@@ -264,13 +260,8 @@
 
       <!-- Júlia -->
       <article class="pro-spread" id="pro-julia">
-        <div class="pro-media">
+        <div class="pro-media pro-media--solo">
           <img class="pro-portrait" src="assets/img/equipe-julia.jpg" alt="Júlia Trevizani, especialista em esmaltação em gel da Delicacy" loading="lazy">
-          <div class="pro-gallery">
-            <img src="assets/img/work-julia-1.jpg" alt="Cuidado de pés por Júlia Trevizani" loading="lazy">
-            <img src="assets/img/work-julia-2.jpg" alt="Trabalho de unhas coloridas por Júlia Trevizani" loading="lazy">
-            <img src="assets/img/work-julia-3.jpg" alt="Trabalho de unhas por Júlia Trevizani" loading="lazy">
-          </div>
         </div>
         <div class="pro-content">
           <p class="pro-num">05</p>
@@ -294,10 +285,9 @@
       <article class="pro-spread pro-spread--reverse" id="pro-nathalia">
         <div class="pro-media">
           <img class="pro-portrait" src="assets/img/equipe-nathalia.jpg" alt="Nathalia Raupp, especialista em unhas e cursos da Delicacy" loading="lazy">
-          <div class="pro-gallery">
+          <div class="pro-gallery pro-gallery--duo">
             <img src="assets/img/work-nathalia-1.jpg" alt="Trabalho de unhas por Nathalia Raupp" loading="lazy">
             <img src="assets/img/work-nathalia-2.jpg" alt="Trabalho de unhas por Nathalia Raupp" loading="lazy">
-            <img src="assets/img/work-nathalia-3.jpg" alt="Trabalho de unhas por Nathalia Raupp" loading="lazy">
           </div>
         </div>
         <div class="pro-content">
