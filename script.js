@@ -29,7 +29,7 @@
   // so content is never stuck invisible (no-JS, slow JS, or anchor-jump loads).
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var allTargets = document.querySelectorAll(
-    '.servico-card, .equipe-card, .resultado-card, .depoimento-card, .selo, .section-head, .cta-final-info, .cta-final-map'
+    '.servico-card, .pro-spread, .resultado-card, .depoimento-card, .section-head, .cta-final-info, .cta-final-map, .equipe-index'
   );
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
