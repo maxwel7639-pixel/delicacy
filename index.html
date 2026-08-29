@@ -32,15 +32,18 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero" id="hero" aria-label="Início">
+  <!-- HERO — cortina que abre ao rolar -->
+  <section class="hero-stage" id="hero" aria-label="Início">
+   <div class="hero-sticky">
+
     <div class="hero-media">
       <picture>
-        <source srcset="assets/img/hero-equipe.webp" type="image/webp">
-        <img src="assets/img/hero-equipe.jpg" alt="Equipe Delicacy Estética reunida em frente ao logo da clínica em Torres/RS" loading="eager">
+        <source srcset="assets/img/hero-centro.webp" type="image/webp">
+        <img src="assets/img/hero-centro.jpg" alt="Equipe Delicacy Estética em frente ao logo dourado da clínica em Torres/RS" loading="eager">
       </picture>
       <div class="hero-scrim"></div>
     </div>
+
     <div class="hero-content">
       <p class="eyebrow">Torres · RS</p>
       <h1>Elevamos sua<br>autoestima</h1>
@@ -53,6 +56,28 @@
         <a href="#servicos" class="btn btn-outline">Ver serviços</a>
       </div>
     </div>
+
+    <div class="hero-door hero-door--left" aria-hidden="true">
+      <picture>
+        <source srcset="assets/img/hero-porta-1.webp" type="image/webp">
+        <img src="assets/img/hero-porta-1.jpg" alt="" loading="eager">
+      </picture>
+    </div>
+    <div class="hero-door hero-door--right" aria-hidden="true">
+      <picture>
+        <source srcset="assets/img/hero-porta-2.webp" type="image/webp">
+        <img src="assets/img/hero-porta-2.jpg" alt="" loading="eager">
+      </picture>
+    </div>
+
+    <div class="hero-plate" aria-hidden="true">
+      <p class="hero-plate-eyebrow">Torres · RS</p>
+      <p class="hero-plate-name">Delicacy</p>
+      <p class="hero-plate-sub">Estética · Beleza · Bem-estar</p>
+      <span class="hero-plate-hint">role para entrar</span>
+    </div>
+
+   </div>
   </section>
 
   <!-- SELOS DE AUTORIDADE — faixa marquee infinita -->

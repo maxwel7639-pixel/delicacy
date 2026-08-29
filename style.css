@@ -28,7 +28,8 @@
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; overflow-x: hidden; }
+/* clip, não hidden: hidden criaria um contexto de rolagem e mataria o position:sticky do hero */
+html{ scroll-behavior: smooth; overflow-x: clip; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
@@ -36,7 +37,7 @@ html{ scroll-behavior: smooth; overflow-x: hidden; }
 
 body{
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: var(--font-sans);
   font-weight: 300;
   color: var(--ink);
@@ -195,19 +196,130 @@ button:focus-visible{
 /* ==========================================================================
    Hero
    ========================================================================== */
-.hero{
+/* --p: 0 = cortina fechada, 1 = cortina aberta.
+   Fica em 1 por padrão para que o hero funcione sem JS. */
+.hero-stage{
+  --p: 1;
   position: relative;
-  min-height: 100svh;
+  height: 100svh;
+  background: var(--sage-900);
+}
+.hero-stage.is-curtain{ height: 260vh; }
+
+.hero-sticky{
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
 }
-.hero-media{ position: absolute; inset: 0; }
+
+.hero-media{
+  position: absolute; inset: 0;
+  transform: scale(calc(1.16 - 0.16 * var(--p)));
+}
 .hero-media picture{ display: block; width: 100%; height: 100%; }
 .hero-media img{
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: 50% 28%;
+}
+
+/* Portas — as duas fotos de equipe lado a lado */
+.hero-door{
+  position: absolute;
+  top: 0;
+  width: 50.2%;
+  height: 100%;
+  z-index: 3;
+  overflow: hidden;
+}
+.hero-door picture{ display: block; width: 100%; height: 100%; }
+.hero-door img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-door--left{
+  left: 0;
+  transform: translate3d(calc(var(--p) * -101%), 0, 0);
+}
+.hero-door--right{
+  right: 0;
+  transform: translate3d(calc(var(--p) * 101%), 0, 0);
+}
+.hero-door--left img{ object-position: 62% 30%; }
+.hero-door--right img{ object-position: 42% 34%; }
+.hero-door::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(31,38,26,0.55) 0%, rgba(31,38,26,0.1) 45%, rgba(31,38,26,0.28) 100%);
+}
+.hero-door--left::before,
+.hero-door--right::before{
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(212,180,131,0.55);
+  z-index: 2;
+}
+.hero-door--left::before{ right: 0; }
+.hero-door--right::before{ left: 0; }
+
+/* Placa central sobre as portas fechadas */
+.hero-plate{
+  position: absolute;
+  z-index: 4;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(calc(1 - 0.08 * var(--p)));
+  opacity: clamp(0, calc((0.42 - var(--p)) / 0.42), 1);
+  text-align: center;
+  padding: 2.6rem 3.2rem;
+  background: rgba(31,38,26,0.42);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(212,180,131,0.5);
+  color: var(--white);
+  max-width: min(88vw, 460px);
+}
+.hero-plate-eyebrow{
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+}
+.hero-plate-name{
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 8vw, 4rem);
+  line-height: 1.1;
+  margin-top: 0.6rem;
+  color: var(--white);
+}
+.hero-plate-sub{
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+}
+.hero-plate-hint{
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  animation: hero-hint 2.4s var(--ease) infinite;
+}
+@keyframes hero-hint{
+  0%, 100%{ opacity: 0.45; transform: translateY(0); }
+  50%{ opacity: 1; transform: translateY(5px); }
+}
+@media (max-width: 560px){
+  .hero-plate{ padding: 2rem 1.4rem; max-width: 82vw; }
+  .hero-plate-sub{ font-size: 0.66rem; letter-spacing: 0.14em; }
+  .hero-plate-hint{ margin-top: 1.5rem; }
 }
 .hero-scrim{
   position: absolute; inset: 0;
@@ -223,6 +335,8 @@ button:focus-visible{
   width: 100%;
   min-width: 0;
   color: var(--white);
+  opacity: clamp(0, calc((var(--p) - 0.5) / 0.35), 1);
+  transform: translate3d(0, calc((1 - var(--p)) * 28px), 0);
 }
 .hero-content h1{
   color: var(--white);

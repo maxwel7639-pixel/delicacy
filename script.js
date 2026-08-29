@@ -3,8 +3,10 @@
 
   // Header background on scroll
   var header = document.getElementById('siteHeader');
+  var heroStage = document.getElementById('hero');
   function onScroll(){
-    if (window.scrollY > 40) header.classList.add('scrolled');
+    var threshold = heroStage ? heroStage.offsetHeight - 120 : 40;
+    if (window.scrollY > threshold) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   }
   onScroll();
@@ -24,6 +26,28 @@
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Hero curtain — the two team photos slide apart as you scroll,
+  // revealing the centre image and the headline underneath.
+  var stage = heroStage;
+  var curtainMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (stage && curtainMotion) {
+    stage.classList.add('is-curtain');
+    onScroll();
+    var ticking = false;
+    var updateCurtain = function(){
+      ticking = false;
+      var travel = stage.offsetHeight - window.innerHeight;
+      var p = travel > 0 ? -stage.getBoundingClientRect().top / travel : 1;
+      stage.style.setProperty('--p', Math.min(1, Math.max(0, p)).toFixed(4));
+    };
+    var requestCurtain = function(){
+      if (!ticking) { ticking = true; requestAnimationFrame(updateCurtain); }
+    };
+    updateCurtain();
+    window.addEventListener('scroll', requestCurtain, { passive: true });
+    window.addEventListener('resize', requestCurtain);
+  }
 
   // Scroll reveal — only animate elements that start below the fold,
   // so content is never stuck invisible (no-JS, slow JS, or anchor-jump loads).
