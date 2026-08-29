@@ -475,11 +475,12 @@ button:focus-visible{
   margin: 0 auto 3rem;
   padding: 0 1.5rem;
 }
+.equipe-banner picture{ display: block; }
 .equipe-banner img{
   width: 100%;
   max-height: 420px;
   object-fit: cover;
-  object-position: 50% 22%;
+  object-position: 50% 30%;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
